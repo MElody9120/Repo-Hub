@@ -6,6 +6,6 @@ It just a simple program about huffhuff~
 
 并添加测试用例  
 
+![TestImg](huffman_ZIP/graystar.bmp)
 
-![TestImg](Huffman_ZIP/graystar.bmp)  
 graystar.bmp
