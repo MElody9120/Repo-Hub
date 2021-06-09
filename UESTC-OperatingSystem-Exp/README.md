@@ -14,4 +14,4 @@ About OperatingSystem's Shell
     
     能够将用户命令转换为对进程与资源控制的具体操作，并将执行的最终结果输出到终端（Terminal）或者指定文件夹中。
 
-:trollface:完成Test Shel使用语言不做限制:
+:trollface:完成Test Shel所使用的编程语言不做限制
