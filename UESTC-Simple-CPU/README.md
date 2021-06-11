@@ -1,6 +1,7 @@
 # Simple_CPU
 CPU By Verlilog  
-这是计算机组成原理的期末课程设计作业.任务目标为使用Verlilog语言设计一个单周期的CPU
+这是计算机组成原理的期末课程设计作业.  
+任务目标为使用Verlilog语言设计一个单周期的CPU
 
 ## 设计一个单周期CPU  
 
