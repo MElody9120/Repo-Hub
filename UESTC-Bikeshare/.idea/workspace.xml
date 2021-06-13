@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c3fe278e-17d0-4b65-a59e-7085567b9a14" name="默认的" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1qhmnKpBbm9v7aE2LdX5JtHW9gi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bikeshare/templates" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="mySupportQtDebugging" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\000\PycharmProjects\UESTC-FinalRepo\bikeshare\templates" />
+      <recent name="C:\Users\000\PycharmProjects\UESTC-FinalRepo\bikeshare\bikeShareData" />
+      <recent name="C:\Users\000\PycharmProjects\UESTC-FinalRepo\bikeshare" />
+      <recent name="C:\Users\000\PycharmProjects\UESTC-FinalRepo" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.BikeShare">
+    <configuration default="true" type="PyLettuceRunConfigurationType" factoryName="Lettuce">
+      <module name="UESTC-Bikeshare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="ADDITIONAL_ARGS" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="aboutme.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/UESTC-Bikeshare/bikeshare/templates/aboutme.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="aboutme.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/UESTC-FinalRepo/bikeshare/templates/aboutme.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="layout.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/UESTC-FinalRepo/bikeshare/templates/layout.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="pointParticle.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/UESTC-FinalRepo/bikeshare/templates/pointParticle.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="BikeShare" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="UESTC-Bikeshare" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bikeshare" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bikeshare/BikeShare.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.BikeShare" />
+        <item itemvalue="JavaScript Debug.aboutme.html (1)" />
+        <item itemvalue="JavaScript Debug.layout.html" />
+        <item itemvalue="JavaScript Debug.pointParticle.html" />
+        <item itemvalue="JavaScript Debug.aboutme.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c3fe278e-17d0-4b65-a59e-7085567b9a14" name="默认的" comment="" />
+      <created>1617540361565</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617540361565</updated>
+      <workItem from="1617540411869" duration="16040000" />
+      <workItem from="1617610852104" duration="4459000" />
+      <workItem from="1617675075834" duration="28841000" />
+      <workItem from="1617758525479" duration="2764000" />
+      <workItem from="1618296773623" duration="4856000" />
+      <workItem from="1618377965098" duration="5829000" />
+      <workItem from="1619249958440" duration="684000" />
+      <workItem from="1619851003742" duration="5511000" />
+      <workItem from="1620048207467" duration="661000" />
+      <workItem from="1620196919266" duration="9958000" />
+      <workItem from="1620261525314" duration="21759000" />
+      <workItem from="1620406548310" duration="1747000" />
+      <workItem from="1620454963394" duration="15661000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/untitled6$deploy.coverage" NAME="deploy Coverage Results" MODIFIED="1617561067128" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bikeshare-master" />
+    <SUITE FILE_PATH="coverage/UESTC_FinalRepo$BikeShare__1_.coverage" NAME="BikeShare (1) Coverage Results" MODIFIED="1617726873270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bikeshare" />
+    <SUITE FILE_PATH="coverage/UESTC_FinalRepo$deploy.coverage" NAME="deploy Coverage Results" MODIFIED="1617717772310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bikeshare" />
+    <SUITE FILE_PATH="coverage/untitled6$Bikeshare.coverage" NAME="Bikeshare Coverage Results" MODIFIED="1617547448024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bikeshare-master" />
+    <SUITE FILE_PATH="coverage/UESTC_Bikeshare$BikeShare.coverage" NAME="BikeShare Coverage Results" MODIFIED="1620580270705" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bikeshare" />
+    <SUITE FILE_PATH="coverage/UESTC_FinalRepo$BikeShare.coverage" NAME="BikeShare Coverage Results" MODIFIED="1620349454346" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/bikeshare" />
+  </component>
+</project>
