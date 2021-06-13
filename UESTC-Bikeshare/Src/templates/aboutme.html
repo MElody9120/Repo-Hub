@@ -1,0 +1,180 @@
+<!-- This is the html that draws the About Me page, mostly use static Web to represent ------>
+<!--Author Melody-->
+<!--date 2021-06-04 2021-06-04 17:19:53-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="{{ url_for('static', filename='image/tabLogo.jpg') }}">
+        <link rel="stylesheet"
+              type="text/css"
+              href="{{ url_for('static', filename='css/style2.css') }}">
+        <title>{{pageName}}</title>
+        <script>
+
+                function openNavOne() {
+                  document.getElementById("myNav").style.width = "25%";
+                }
+                function closeNavOne() {
+                  document.getElementById("myNav").style.width = "0%";
+                }
+        </script>
+        <nav class='navbar'>
+            <ul id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNavOne()">&times;</a>
+                <div class="overlay-content">
+                    <a href="/">Home</a>
+                    <a href="/stats">Statistics</a>
+                    <a href="/graphs">Graphs</a>
+                    <a href="https://github.com/MElody9120/UESTC-FinalRepo" target="_blank">Repo</a>
+                    <a href="/aboutme">About Me</a>
+                </div>
+            </ul>
+            <ul class="left">
+                <li><a onclick="openNavOne()" style="font-size: 150%">&#9776;</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="https://github.com/MElody9120/UESTC-FinalRepo" target="_blank" style="font-size: 150%">github repo</a></li>
+            </ul>
+        </nav>
+    </head>
+
+    <!-- Tell the Body to call the scripted function and pass it to index.html -->
+    <body>
+        <title>
+            About Me
+        </title>
+
+         <!-- Adding Text to the body and adding the actual frame of the map that was scripted in layout.html -->
+        <link rel="stylesheet"
+              type="text/css"
+              href="{{ url_for('static', filename='css/aboutme.css') }}">
+        <div style="background-image: url('../static/image/sunset.jpg');
+                            background-size: 120%;
+                            min-height: 500px;
+                            background-repeat: no-repeat;
+                            background-attachment: fixed;
+                            font: 70px 'Century Gothic';">
+            <a style="display: flex;
+                          align-items: center;
+                          color: white;
+                          justify-content: center;
+                          text-align: center;
+                          line-height: 500px;
+                          margin-left:10%;">About Me</a>
+        </div>
+
+        <!--show the propic-->
+        <img src="../static/image/profPic.jpg" alt="Avatar" style="border-radius: 50%;
+            width: 15%;
+            height: 30%;
+            margin-left:7%;
+            margin-top:-9%">
+
+        <div style="float:right; width:50%; height: 35%">
+            <text style="float:right; font-size: 100px; margin-right: 40px; padding: 0;">Melody LinK</text>
+            <text style="float:right; font-size: 25px; margin-right: 20px; padding: 0;">B.S.C Computer Science</text>
+        </div>
+
+        <!--show the footer-->
+        <section class="introduction-section">
+            <h1 style="font-size:35px">About Me</h1>
+            <p>I am an undergraduate student at the University of Electronic Science and Technology of China pursuing a  major in Computer Science</p>
+            <p style="margin-top:8px">I come from Fangchenggang City, Guangxi.In the first two years of my university career,
+                I studied at Zhongshan College of the University of Electronic Science and Technology of China,
+                and now I am an exchange student at the University of Electronic Science and Technology of China </p>
+            <p style="margin-top:8px">I am passionate about learning and developing new systems and tools.
+                In the process of learning, I gained a lot of knowledge and mastered a lot of development skills</p>
+        </section>
+        <br>
+        <br>
+        <div class="introduction-section" style="min-height:200px">
+        <!--show the skill ,represented in a pie chart -->
+            <h1 style="font-size:35px">Programming Experience</h1>
+            <div class="progress-circle over50 p92">
+                <span>Python</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <div class="progress-circle over50 p79">
+                <span>C++</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <div class="progress-circle over50 p73">
+                <span>Java</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+            <div class="progress-circle over50 p64">
+                <span>Web</span>
+                <div class="left-half-clipper">
+                    <div class="first50-bar"></div>
+                    <div class="value-bar"></div>
+                </div>
+            </div>
+        </div>
+        <!--Related Web Link-->
+        <section class="introduction-section">
+            <h1 style="font-size:35px">Citations</h1>
+            <p>Data Source: <a href="https://bikeshare.metro.net/about/data/" style="color:grey">https://bikeshare.metro.net/about/data/</a></p>
+            <br>
+            <p>Images Source: <a href="https://pxhere.com/" style="color:grey">https://pxhere.com/</a></p>
+            <br>
+            <p>CSS additions: <a href="https://www.w3schools.com/" style="color:grey">https://www.w3schools.com/</a></p>
+        </section>
+    </body>
+
+    <!--accelerated loading with  CDN-->
+    <footer class="footer-distributed">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="footer-left">
+            <h3>Bike Share<span>Data</span></h3>
+            <p class="footer-links">
+                <a href="/">Home</a>
+                ·
+                <a href="/stats">Statistics</a>
+                ·
+                <a href="/graphs">Graphs</a>
+                ·
+                <a href="/aboutme">About Me</a>
+            </p>
+            <p class="footer-company-name">Melody | B.C.S Computer Science</p>
+        </div>
+        <div class="footer-center">
+           <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>University of Electronic Science and Technology of China</span>Chengdu, Sichuan</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+86 153-6274-9120</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:meeody2344@gmail.com">meeody2344@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the project</span>
+                This is my graduation project of computer degree in UESTC.
+                Aggregation of user data from the Los Angeles Metro bikeshare business of 2019-2020.
+                Using data techniques to determine various correlations and statistics.
+            </p>
+            <!--icon from fa -->
+            <div class="footer-icons">
+                <a href="https://www.youtube.com/channel/UCMKB0Nh5iOdhx505hqaI6zw" target="_blank"><i class="fa fa-youtube"></i></a>
+                <a href="https://twitter.com/melody90891949" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://steamcommunity.com/profiles/76561198181739799" target="_blank"><i class="fa fa-steam"></i></a>
+                <a href="https://github.com/MElody9120" target="_blank"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</html>

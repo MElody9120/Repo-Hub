@@ -1,0 +1,217 @@
+<!-- This is the base and main file that displays the website and the map.
+     Also houses the script that runs all the dynamics on the map ------>
+<!--author Melody-->
+<!--date 2021-06-04 15:56:56-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="{{url_for('static', filename='image/tabLogo.jpg') }}">
+        <link rel="stylesheet"
+              type="text/css"
+              href="{{url_for('static', filename='css/style2.css') }}">
+
+        <title>{{ mapName }}</title>
+
+        <!--    Adding text to the body and adding the actual frame of the map that was scripted in Layout.html -->
+        <link rel="stylesheet"
+              type="text/css"
+              href="{{ url_for('static', filename='css/style2.css') }}">
+    </head>
+
+    <!-- Tell the body to call the scripted function and pass IT to Index.html -->
+    <!-- load initmap -->
+    <body>
+        <div style="background-image: url('../static/image/losAngeles.jpg');
+                            background-size: 120%;
+                            min-height: 500px;
+
+                            background-repeat: no-repeat;
+                            background-attachment: fixed;
+                            font: 70px 'Century Gothic';">
+            <a style="display: flex;
+                          color: white;
+                          align-items: center;
+                          justify-content: center;
+                          text-align: center;
+                          line-height: 500px;
+                            margin-left:8%;">Los Angeles Bike Share</a>
+        </div>
+        <!--show the navbar link-->
+        <nav class='navbar'>
+            <ul id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times</a>
+                <div class="overlay-content">
+                    <a href="/">Home</a>
+                    <a href="/stats">Statistics</a>
+                    <a href="/graphs">Graphs</a>
+                    <a href="https://github.com/MElody9120/UESTC-FinalRepo" target="_blank">Repo</a>
+                    <a href="/aboutme">About Me</a>
+                </div>
+            </ul>
+
+            <ul class="left">
+                <li><a onclick="openNav()">&#9776;</a></li>
+            </ul>
+
+
+            <ul class="right">
+                <li><a href="https://github.com/MElody9120/UESTC-FinalRepo" target="_blank">github repo</a></li>
+            </ul>
+        </nav>
+         <!--show the map info-->
+        <div style="width:100%" id="mp">
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Modify Mode</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="/#mp">Locations</a>
+                    <a href="/start_heat#mp">Starting Station Heat Map</a>
+                    <a href="/stop_heat#mp">Stoping Station Heat Map</a>
+                </div>
+            </div>
+            <input type="range" min="1" max="30" value="15" class="slider" id="myRange" onchange="initMap()">
+            <h1 class="middle">{{ mapName }}</h1>
+        </div>
+
+        <div class="container">
+            <div id="map" style="width:100%; height:650px;"></div>
+        </div>
+        <!-- the flask frame work Web Jump include-->
+        {% block content %}
+        {% endblock %}
+    </body>
+
+    <footer class="footer-distributed">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="footer-left">
+            <h3>Bike Share<span>Data</span></h3>
+            <p class="footer-links">
+                <a href="/">Home</a>
+                ·
+                <a href="/stats">Statistics</a>
+                ·
+                <a href="/graphs">Graphs</a>
+                ·
+                <a href="/aboutme">About Me</a>
+            </p>
+            <p class="footer-company-name">Melody | B.C.S Computer Sciencecs</p>
+        </div>
+        <div class="footer-center">
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>University of Electronic Science and Technology of China</span>Chengdu, Sichuan</p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+86 153-6274-9120</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:meeody2344@gmail.com">meeody2344@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="footer-right">
+            <p class="footer-company-about">
+                <span>About the project</span>
+                This is my graduation project of computer degree in UESTC.
+                Aggregation of user data from the Los Angeles Metro bikeshare business of 2019-2020.
+                Using data techniques to determine various correlations and statistics.
+            </p>
+            <div class="footer-icons">
+                <a href="https://www.youtube.com/channel/UCMKB0Nh5iOdhx505hqaI6zw" target="_blank"><i
+                        class="fa fa-youtube"></i></a>
+                <a href="https://twitter.com/melody90891949" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://steamcommunity.com/profiles/76561198181739799" target="_blank"><i class="fa fa-steam"></i></a>
+                <a href="https://github.com/MElody9120" target="_blank"><i class="fa fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+      function myFunction () {
+        document.getElementById('myDropdown').classList.toggle('show')
+      }
+      // Close the dropdown menu if the user clicks outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName('dropdown-content')
+          var i
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i]
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show')
+            }
+          }
+        }
+      }
+    </script>
+    <!-- CREATION OF THE TOP RIBBON CONTAINING NAVIGATION OPTIONS -->
+    <script>
+      function openNav () {
+        document.getElementById('myNav').style.width = '25%'
+      }
+      function closeNav () {
+        document.getElementById('myNav').style.width = '0%'
+      }
+      document.addEventListener('load', initMap)
+      // init Map
+      function initMap () {
+          //Create the string and infowindow that displays hover over information
+        const contentString = ''
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          position: { lat: 34.037421, lng: -118.299548 }
+        })
+        //Creation of the Map of Los Angeles By using Google Map API
+        const myLatLng = { lat: 34.037421, lng: -118.299548 }
+        const map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13.0,
+          center: myLatLng
+        })
+        var placeNames ={{ locNameConv|tojson }}
+        var temp = document.getElementById('myRange').valueAsNumber
+        let loc ={{loc|tojson}}
+        for (var i = 0; i < loc.length; i++) {
+          var cityCircle = new google.maps.Circle({
+            number: {{locName}}[i],
+            title: placeNames[{{locName}}[i]],
+            strokeOpacity: 0,
+            strokeWeight: 2,
+            fillColor: '#000000',
+            fillOpacity: 0.3,
+            map: map,
+            center: { lat: loc[i][0][0], lng: loc[i][0][1] },
+            radius: (loc[i][1]) / temp,
+            rad: (loc[i][1]) / temp,
+            usage: loc[i][1]
+          })
+          setMouseOverEvent(cityCircle)
+        }
+        //The Hover over Action Event Initialized and defined
+        function setMouseOverEvent (cityCircle) {
+          google.maps.event.addListener(cityCircle, 'mouseover', function (e) {
+            this.setOptions({
+              fillColor: '#00CC00',
+              radius: this.rad * 2
+            })
+            infowindow.setContent('<div><b>' + this.title + '</b><br>' +
+              'Station #' + this.number + '<br>' +
+              'Recorded Usage: ' + this.usage + ' rides<br></div>')
+            infowindow.setPosition(this.center)
+            infowindow.open(map)
+          })
+          google.maps.event.addListener(cityCircle, 'mouseout', function (e) {
+            this.setOptions({
+              fillColor: '#000000',
+              radius: this.rad
+            })
+            infowindow.close()
+          })
+        }
+      }
+    </script>
+    <!-- Initialize the google maps API, Key Must Change -->
+    <script type="text/javascript"
+            src="https://maps.googleapis.com/maps/api/js?key=__YOUR_GOOGLE_MAP_KEY__&callback=initMap">
+    </script>
+</html>
