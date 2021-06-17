@@ -1,0 +1,28 @@
+spring:
+  datasource:
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://101.132.140.236:3306/software_engineering?serverTimezone=UTC
+#    schema:
+#      - classpath:sql/model.sql
+#    initialization-mode: always
+  redis:
+    database: 0
+    password: root
+    port: 6379
+    host: 101.132.140.236
+    lettuce:
+      pool:
+        min-idle: 5
+        max-idle: 10
+        max-active: 8
+        max-wait: 1ms
+      shutdown-timeout: 100ms
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+mybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
