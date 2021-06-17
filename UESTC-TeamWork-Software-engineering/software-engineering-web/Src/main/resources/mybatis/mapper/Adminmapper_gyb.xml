@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhej789.softwareengineering.mapper.AdminMapper_gyb">
+    <!--管理员分页查看用户信息-->
+    <select id="getMemberbyNum" resultType="Integer">
+        select count(*) from Member
+    </select>
+    <select id="getMember" resultType="com.hhej789.softwareengineering.bean.Member">
+        select * from Member limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--管理员分页查看已发布信息-->
+    <select id="getInfobyNum" resultType="Integer">
+        select count(*)
+        from Info
+        LEFT JOIN Goods AS public_good ON Info.good_id = public_good.good_id
+        LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+        LEFT JOIN Goods AS request_good ON RequestExchange.exchange_good_id = request_good.good_id
+    </select>
+    <select id="getInfo" resultType="com.hhej789.softwareengineering.bean.AdminGetInfo">
+        SELECT
+        Info.info_id AS 'info_id',
+        sort_id  AS 'sort_id',
+        public_member_id AS 'public_member_id',
+        scan_num AS 'scan_num',
+        public_date AS 'public_data',
+        deal_member_id AS 'deal_member_id',
+        Info.`status` AS 'status',
+        public_good.good_name AS 'good_name',
+        public_good.good_description AS 'good_description',
+        request_good.good_name AS 'exchange_good_name',
+        request_good.good_description AS 'exchange_good_description',
+        RequestExchange.request_member_id AS 'request_member_id',
+        RequestExchange.`status` AS 'request_status'
+        FROM
+        Info
+        LEFT JOIN Goods AS public_good ON Info.good_id = public_good.good_id
+        LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+        LEFT JOIN Goods AS request_good ON RequestExchange.exchange_good_id = request_good.good_id
+        limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--管理员分类分页查看已发布的信息-->
+    <select id="getInfoSortbyNum" resultType="Integer">
+        select count(*)
+        from Info
+        LEFT JOIN Goods AS public_good ON Info.good_id = public_good.good_id
+        LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+        LEFT JOIN Goods AS request_good ON RequestExchange.exchange_good_id = request_good.good_id
+        WHERE Info.sort_id  = #{sort_id}
+    </select>
+
+    <select id="getInfoBySort" resultType="com.hhej789.softwareengineering.bean.AdminGetInfoBySort">
+        SELECT
+        Info.info_id AS 'info_id',
+        sort_id  AS 'sort_id',
+        public_member_id AS 'public_member_id',
+        scan_num AS 'scan_num',
+        public_date AS 'public_data',
+        deal_member_id AS 'deal_member_id',
+        Info.`status` AS 'status',
+        public_good.good_name AS 'good_name',
+        public_good.good_description AS 'good_description',
+        request_good.good_name AS 'exchange_good_name',
+        request_good.good_description AS 'exchange_good_description',
+        RequestExchange.request_member_id AS 'request_member_id',
+        RequestExchange.`status` AS 'request_status'
+        FROM
+        Info
+        LEFT JOIN Goods AS public_good ON Info.good_id = public_good.good_id
+        LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+        LEFT JOIN Goods AS request_good ON RequestExchange.exchange_good_id = request_good.good_id
+        WHERE Info.sort_id  = #{sort_id}
+
+        limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--管理员根据用户id查看用户发布信息-->
+    <select id="getInfoMemIdbyNum" resultType="Integer">
+        select count(*)
+        from Info
+        LEFT JOIN Goods AS public_good ON Info.good_id = public_good.good_id
+        LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+        LEFT JOIN Goods AS request_good ON RequestExchange.exchange_good_id = request_good.good_id
+        LEFT JOIN Member ON Member.member_id = Info.public_member_id
+	WHERE public_member_id = #{member_id}
+
+    </select>
+    <select id="getInfoByMemId" resultType="com.hhej789.softwareengineering.bean.AdminGetInfoBySort">
+        SELECT
+        Info.info_id AS 'info_id',
+        sort_id  AS 'sort_id',
+        public_member_id AS 'public_member_id',
+        scan_num AS 'scan_num',
+        public_date AS 'public_data',
+        deal_member_id AS 'deal_member_id',
+        Info.`status` AS 'status',
+        public_good.good_name AS 'good_name',
+        public_good.good_description AS 'good_description',
+        request_good.good_name AS 'exchange_good_name',
+        request_good.good_description AS 'exchange_good_description',
+        RequestExchange.request_member_id AS 'request_member_id',
+        RequestExchange.`status` AS 'request_status'
+        FROM
+        Info
+        LEFT JOIN Goods AS public_good ON Info.good_id = public_good.good_id
+        LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+        LEFT JOIN Goods AS request_good ON RequestExchange.exchange_good_id = request_good.good_id
+        LEFT JOIN Member ON Member.member_id = Info.public_member_id
+        WHERE public_member_id = #{member_id}
+
+        limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--管理员登陆-->
+    <select id="getAdmin" resultType="com.hhej789.softwareengineering.bean.Admin">
+        select * from Admin where admin_id=#{admin_id}
+    </select>
+</mapper>

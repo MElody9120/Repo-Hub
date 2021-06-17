@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhej789.softwareengineering.mapper.MemberMapper_lzr">
+
+    <!--    统计用户分页查看个人发布的信息数据的数量-->
+    <select id="getInfoPublicIdByNum" resultType="Integer">
+        SELECT
+	count(*)
+FROM
+	Info
+	INNER JOIN Goods AS public_goods ON Info.good_id = public_goods.good_id
+	LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+	LEFT JOIN Goods AS request_goods ON RequestExchange.exchange_good_id = request_goods.good_id
+WHERE
+	Info.public_member_id = #{id}
+    </select>
+
+    <!--    用户分页查看个人发布的信息-->
+    <select id="getInfoByPublicId" resultType="com.hhej789.softwareengineering.bean.MemberGetInfoById">
+        SELECT
+         Info.info_id AS 'info_id',
+         Info.sort_id AS 'sort_id',
+         public_goods.good_name AS 'good_name',
+         public_goods.good_description AS 'good_description',
+         Info.`status` AS 'status',
+         Info.public_date AS 'public_date',
+         Info.scan_num AS 'scan_num',
+         Info.deal_member_id AS 'deal_member_id',
+         RequestExchange.request_member_id as 'request_member_id',
+         request_goods.good_name as 'exchange_good_name',
+         request_goods.good_description as 'exchange_good_description'
+        FROM
+         Info
+         INNER JOIN Goods AS public_goods ON Info.good_id = public_goods.good_id
+         LEFT JOIN RequestExchange ON Info.info_id = RequestExchange.info_id
+         LEFT JOIN Goods AS request_goods ON RequestExchange.exchange_good_id=request_goods.good_id
+         where Info.public_member_id = #{id} limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--    用户查看成交用户信息-->
+    <select id="getInfoByDealId" resultType="com.hhej789.softwareengineering.bean.GetDealMem">   <!--    用户查看成交用户信息-->
+        SELECT
+            member_name,
+            wechat_id,
+            phone_num
+        FROM
+            `Member`
+        WHERE
+            member_id IN (
+            SELECT
+                deal_member_id
+            FROM
+                Info
+        WHERE
+            info_id = #{id})
+    </select>
+</mapper>

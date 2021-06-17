@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hhej789.softwareengineering.mapper.InfoMapper_lzr">
+
+    <!--    统计分页查询已发布的信息数据的数量-->
+    <select id="getInfoCount" resultType="Integer">
+        SELECT count(*) FROM Info
+    </select>
+    <!--    分页查询已发布的信息-->
+    <select id="getInfo" resultType="com.hhej789.softwareengineering.bean.Info">
+        select * from Info limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--分页模糊搜索已发布的信息-->
+    <select id="getGoodsByName" resultType="com.hhej789.softwareengineering.bean.Info">
+        select * from Info where good_id in (select good_id from Goods where good_name like concat('%',#{good_name},'%')) limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--    统计分页模糊搜索已发布的信息数据的数量-->
+    <select id="getGoodsNumByName" resultType="Integer">
+        select count(*) from Info where good_id in (select good_id from Goods where good_name like concat('%',#{good_name},'%'))
+    </select>
+
+
+    <!--统计分页分类搜索已发布的信息数据的数量-->
+    <select id="getInfoSortNumById" resultType="Integer">
+        select count(*) from Info where sort_id in (select sort_id from InfoSort where sort_id = #{sort_id})
+    </select>
+    <!--    分页分类搜索已发布的信息-->
+    <select id="getInfoSortById" resultType="com.hhej789.softwareengineering.bean.Info">
+        select * from Info where sort_id in (select sort_id from InfoSort where sort_id = #{sort_id}) limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+    <!--统计分页分类模糊搜索已发布的信息数据的数量-->
+    <select id="getNumBySortKeyWord" resultType="Integer">
+        select count(*) from Info where sort_id = #{id} and good_id in (select good_id from Goods where good_name like concat('%',#{name},'%'))
+    </select>
+
+    <!--    分页分类模糊搜索已发布的信息-->
+    <select id="getInfoBySortKeyWord" resultType="com.hhej789.softwareengineering.bean.Info">
+        select * from Info where sort_id = #{id} and good_id in (select good_id from Goods where good_name like concat('%',#{name},'%')) limit ${(page-1)*10},
+        <choose>
+            <when test="(count % 10 != 10) and (page == count / 10 + 1)">
+                ${count % 10}
+            </when>
+            <otherwise>
+                10
+            </otherwise>
+        </choose>
+    </select>
+
+
+</mapper>
